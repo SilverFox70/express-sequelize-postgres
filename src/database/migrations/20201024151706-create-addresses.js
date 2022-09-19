@@ -17,10 +17,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING,
       },
-      neighborhood: {
-        allowNull: false,
-        type: Sequelize.STRING,
-      },
+
       country: {
         allowNull: false,
         type: Sequelize.STRING,
@@ -39,3 +36,9 @@ module.exports = {
 
   down: (queryInterface) => queryInterface.dropTable("Addresses"),
 };
+
+// --- removed code ---
+// neighborhood: {
+//   allowNull: false,
+//   type: Sequelize.STRING,
+// },

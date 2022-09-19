@@ -6,7 +6,6 @@ class Address extends Model {
       {
         city: Sequelize.STRING,
         state: Sequelize.STRING,
-        neighborhood: Sequelize.STRING,
         country: Sequelize.STRING,
       },
       {

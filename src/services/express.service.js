@@ -30,10 +30,14 @@ const expressService = {
 
       server = express();
       server.use(bodyParser.json());
+      server.get("/", (req, res) => {
+        res.json({message: "Welcome to express-sequelize-boilerplate"});
+      });
       server.use(routes);
 
-      server.listen(process.env.SERVER_PORT);
-      console.log("[EXPRESS] Express initialized");
+      server.listen(process.env.SERVER_PORT, () => {
+        console.log("[EXPRESS] Express initialized and listening on port:", process.env.SERVER_PORT);
+      });
     } catch (error) {
       console.log("[EXPRESS] Error during express service initialization");
       throw error;

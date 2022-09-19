@@ -18,10 +18,6 @@ module.exports = {
         unique: true,
         type: Sequelize.STRING,
       },
-      password_hash: {
-        allowNull: false,
-        type: Sequelize.STRING,
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
@@ -36,3 +32,9 @@ module.exports = {
 
   down: (queryInterface) => queryInterface.dropTable("Users"),
 };
+
+// --- removed code ---
+// password_hash: {
+//   allowNull: false,
+//   type: Sequelize.STRING,
+// },

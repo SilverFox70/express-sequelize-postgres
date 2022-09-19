@@ -10,21 +10,22 @@ let userController = {
     try {
       const schema = Yup.object().shape({
         name: Yup.string().required(),
-        email: Yup.string().email().required(),
-        password: Yup.string().required().min(6),
+        email: Yup.string().email().required()
       });
+
+      console.log(req.body);
 
       if (!(await schema.isValid(req.body)))
         return res.status(400).json({ error: Errors.VALIDATION_FAILS });
 
       const { email } = req.body;
 
-      const userExists = await User.findOne({
-        where: { email },
-      });
+      // const userExists = await User.findOne({
+      //   where: { email },
+      // });
 
-      if (userExists)
-        return res.status(400).json({ error: Errors.USER_ALREADY_EXISTS });
+      // if (userExists)
+      //   return res.status(400).json({ error: Errors.USER_ALREADY_EXISTS });
 
       const user = await User.create(req.body);
 
