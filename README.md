@@ -3,8 +3,8 @@
   <img src="https://expressjs.com/images/express-facebook-share.png" width="auto" height="64px">
 </div>
 
-# express-sequelize-boilerplate
-A boilerplate for express.js.
+
+This project is based on [express-sequelize-boilerplate](https://github.com/gadfaria/express-sequelize-boilerplate) : A boilerplate for express.js with integration for Sequelize and Postgres.
 
 ## Getting Started 
 
@@ -21,11 +21,16 @@ yarn
 # Set the environment variables:
 cp .env.example .env
 
+# If database exists, run migrations:
+yarn sequelize db:migrate 
+
 # Running the boilerplate:
 yarn dev
 ```
 
 ## Configuration
+
+> NOTE: At this time in the project, JWT and AWS support has been commented out, but left in place for reference.
 
 Variables for the environment
 
@@ -59,10 +64,15 @@ yarn sequelize db:migrate
 # Undo migrations
 yarn sequelize db:migrate:undo:all 
 
-# Load seeders
+# Load seeders (Note, there is no seeders code written at this time)
 yarn sequelize db:seed:all
 ```
 
-<h5 align="center">
-  ☕ Code and Coffee
-</h5>
+## Building out the application
+
+This boilerplate takes a more 'enterprisey' approach to handling its tables and resources. To add models properly within this context requires writing migrations as found in `src/database/migrations`. Of course, models, controllers and routes for each resource will have to be placed in each of the respective folders: 
+
+- `src/controllers`
+- `src/models`
+- `src/routes`
+
